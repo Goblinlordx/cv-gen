@@ -82,6 +82,11 @@ class App extends Component {
               });
               const {name} = data;
               document.title = name;
+              const {group} = token;
+              if (group) {
+                const {ga} = window;
+                ga('send', 'event', 'View', 'Group', group);
+              }
             })
             .catch(() => {
               this.setState({
