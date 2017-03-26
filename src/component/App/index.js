@@ -30,9 +30,9 @@ class App extends Component {
       Promise.resolve(getToken())
         .then(nt => {
           newToken = nt;
-          window.history.replaceState('', document.title, '/');
+          const {origin, pathname} = location;
+          window.history.replaceState('', document.title, origin + pathname);
           if (newToken) {
-            console.log('new token', newToken);
             return firebase
               .database()
               .ref(`/users/${uid}/token`)
@@ -52,7 +52,7 @@ class App extends Component {
             .then(snap => snap.val());
         })
         .then(token => {
-          if (newToken && !token) {
+          if (newToken && newToken !== token) {
             this.setState({
               invalidToken: true,
             });
