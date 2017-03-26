@@ -43,7 +43,7 @@ Once we have authenticated a user we attempt to check if either a token is provi
 
 ## <a name="authorize"></a>Authorization System
 
-Authorization starts out-of-band with a user being sent a link containing a query string with a token.  The token isn't necessarily meant for a single user but a group of user's that might have access. Each token can have an expiration time, a set of overlay data, and any other required metadata.
+Authorization starts out-of-band with a user being sent a link containing a query string with a token.  The token isn't necessarily meant for a single user but a group of user's that might have access. Each token can have an expiration time, a set of overlay data, and any other required metadata. With admin privileges this information can be altered at any time. It is important to note that the token is only required once.  After clicking a proper access link, the account on the client is bound to that token.
 
 The tokens can be removed or invalidated at any time to blacklist a group from database access.  There is also the option of invalidation via expiration.  Tokens can also contain an overlay which the client will merge with a base set of data as an overlay.  This can provide a unique view of the CV based on the token group they gained access through.
 
