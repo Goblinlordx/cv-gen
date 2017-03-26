@@ -37,7 +37,7 @@ After the client has validated it's token it retrieves the data using [Firebase 
 
 ## <a name="authen"></a>Authentication System
 
-Authentication of each client accessing the data is handled by using [Firebase's][5] [anonymous authentication][4].  This will connect a single client with a new user ID in [Firebase][5].  One of the huge advantages of this is that [Firebase Authentication][7] is provided for [free][8].  This significantly reduces overhead for maintaining an authentication system.  The session will persist indefinetly or until the user clears the browser cache.
+Authentication of each client accessing the data is handled by using [Firebase's][5] [anonymous authentication][4].  This will connect a single client with a new user ID in [Firebase][5].  One of the huge advantages of this is that [Firebase Authentication][7] is provided for [free][9].  This significantly reduces overhead for maintaining an authentication system.  The session will persist indefinetly or until the user clears the browser cache.
 
 Once we have authenticated a user we attempt to check if either a token is provided or the client's account already exists.  If the client has a new token, it will attempt to validate the new token.  If the new token is invalid it falls back to checking if the account already has an existing token.  If it does, it will validate the existing token.  When the client has a valid token it will then simply retrieve the data.
 
@@ -61,4 +61,4 @@ While this project is mainly for myself, I do hope other's can gain some insight
 [6]: https://firebase.google.com/docs/database/security/
 [7]: https://firebase.google.com/docs/auth/
 [8]: https://firebase.google.com/docs/database/
-[8]: https://firebase.google.com/pricing/
+[9]: https://firebase.google.com/pricing/
