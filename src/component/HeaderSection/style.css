@@ -1,0 +1,14 @@
+@media screen {
+  .contacts {
+    background-color: #303f9f;
+  }
+}
+
+@media print {
+  .contacts {
+    background-color: tranparent !important;
+  }
+  a {
+    color: #222 !important;
+  }
+}

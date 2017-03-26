@@ -1,0 +1,26 @@
+{
+  "rules": {
+    ".read": "root.child('admins').hasChild(auth.uid)",
+    ".write": "root.child('admins').hasChild(auth.uid)",
+    "info": {
+      ".read": "root.child('users/'+auth.uid+'/token').exists() && (!root.child('tokens/'+root.child('users/'+auth.uid+'/token').val()+'/expire').exists() || root.child('tokens/'+root.child('users/'+auth.uid+'/token').val()+'/expire').val() > now)",
+    },
+    "tokens": {
+      "$token": {
+        ".read": "(!data.child('expire').exists() || data.child('expire').val() > now) && root.child('users/'+auth.uid+'/token').val() === $token",
+        "expire": {
+          ".validate": "newData.isNumber() && newData.val() >= now"
+        }
+      }
+    },
+    "users": {
+      "$uid": {
+        "token": {
+          ".read": "auth.uid === $uid",
+          ".write": "auth.uid === $uid",
+          ".validate": "newData.isString() && root.child('tokens/'+newData.val()).exists() && (!root.child('tokens/'+newData.val()+'/expire').exists() ||  root.child('tokens/'+newData.val()+'/expire').val() > now)"
+        }
+      }
+    }
+  }
+}
