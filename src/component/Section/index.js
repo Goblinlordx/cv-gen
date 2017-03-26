@@ -21,11 +21,8 @@ const contentStyle = {
   flexGrow: 1,
 };
 
-const Section = ({sub, data, panel: Panel, content: Content}) => (
-  <div
-    className={`section${(sub && ' SubSection') || ''}`}
-    style={sectionStyle}
-  >
+const Section = ({title, sub, data, panel: Panel, content: Content}) => (
+  <div className={`section${(title && ' title') || ''}`} style={sectionStyle}>
     <div className="textOnDeco printBW" style={sidePanelStyle}>
       {Panel && <Panel data={data} />}
     </div>

@@ -52,7 +52,7 @@ const CertSection = ({data: {training}}) => (
     {training &&
       training.map((d, i) => [
         <Section key={i} data={d} panel={CertPanel} content={CertContent} />,
-        <CertSpacer key={100 + i} />,
+        (i !== training.length - 1 && <CertSpacer />) || null,
       ])}
     <Section.Footer />
   </div>

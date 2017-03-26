@@ -68,7 +68,7 @@ const CareerSection = ({data: {career}}) =>
         <div className="SubSection" key={i}>
           <Section data={d} panel={CareerPanel} content={RecordHeader} />
           <Section data={d} content={CareerContent} />
-          <CareerSpacer />
+          {(i !== career.length - 1 && <CareerSpacer />) || null}
         </div>
       ))}
     <Section.Footer />

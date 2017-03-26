@@ -3,10 +3,11 @@
   min-height: 100%;
   margin: 0;
   margin-top: 1cm;
+  margin-left: -.25cm;
 }
 
 @page :first {
-  margin: 0;
+  margin-top: -1cm;
 }
 
 @media print {
@@ -32,6 +33,11 @@ h1 {
 h1, h2, h3, h4, h5 {
   margin: 0;
   text-align: center;
+  page-break-after: avoid;
+}
+
+.title {
+  page-break-inside: avoid;
   page-break-after: avoid;
 }
 

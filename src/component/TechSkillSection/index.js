@@ -33,17 +33,18 @@ const SkillSpacer = () => <div className="SkillSpacer" style={spacerStyle} />;
 
 const SkillSection = ({data: {skills}}) => (
   <div>
-    <Section content={SkillTitle} />
     {skills &&
       skills.map((d, i) => [
-        <Section
-          key={i}
-          sub={true}
-          data={d}
-          panel={SkillPanel}
-          content={SkillContent}
-        />,
-        <SkillSpacer key={100 + i} />,
+        <div className="title" key={i}>
+          <Section content={SkillTitle} />
+          <Section
+            sub={true}
+            data={d}
+            panel={SkillPanel}
+            content={SkillContent}
+          />
+        </div>,
+        (i !== skills.length - 1 && <SkillSpacer key={100 + i} />) || null,
       ])}
     <Section.Footer />
   </div>
