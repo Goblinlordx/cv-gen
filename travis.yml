@@ -1,4 +1,11 @@
 language: node_js
+sudo: required
 node_js:
  - "7"
 cache: yarn
+before_install:
+ - "npm install yarn"
+install:
+ - "yarn"
+script:
+ - "yarn run test"
