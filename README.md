@@ -31,7 +31,7 @@ Github provides free hosting of static assets.  Clients request static assets wh
 
 Once initialized [React][2] does not actually render anything.  It will begin an authentication flow.  It will authenticate using [anonymous Firebase Authentication][4].  After authentication the client will go through a validation to ensure either it's account has a valid token or it is providing a new token which is valid.  While the client does the tests the actual validation is done using [Firebase Database authorization rules][6].
 
-After the client has validated it's token it retrieves the data using [Firebase Database][7].  The data is retrieved in as 2 sets of data.  One is a base set of data and the second is a token specific set of data.  The client then merges these together and provides them to [React][2]
+After the client has validated it's token it retrieves the data using [Firebase Database][8].  The data is retrieved in as 2 sets of data.  One is a base set of data and the second is a token specific set of data.  The client then merges these together and provides them to [React][2]
 
 [React][2] begins rendering immediately after receiving the data.  This will build the the html and css as necessary to render the desired output.
 
