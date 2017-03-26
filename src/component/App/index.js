@@ -80,6 +80,8 @@ class App extends Component {
                 authorized: true,
                 data,
               });
+              const {name} = data;
+              document.title = name;
             })
             .catch(() => {
               this.setState({
