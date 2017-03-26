@@ -19,10 +19,11 @@ const recordStyle = {
   paddingLeft: 30,
 };
 
-const SkillContent = ({data: {description}}) => (
-  <div style={recordStyle}>
+const SkillContent = ({data: {description, descriptors = []}}) => (
+  <ul style={recordStyle}>
+    {descriptors.map(d => {})}
     {description}
-  </div>
+  </ul>
 );
 
 const SkillTitle = () => <h2>Technical Skills</h2>;
@@ -35,15 +36,26 @@ const SkillSection = ({data: {skills}}) => (
   <div>
     {skills &&
       skills.map((d, i) => [
-        <div className="title" key={i}>
-          <Section content={SkillTitle} />
+        (!i &&
+          <div className="title" key={i}>
+            <Section content={SkillTitle} />
+            <Section
+              sub={true}
+              data={d}
+              panel={SkillPanel}
+              content={SkillContent}
+            />
+          </div>) ||
+          null,
+        (i &&
           <Section
             sub={true}
             data={d}
             panel={SkillPanel}
             content={SkillContent}
-          />
-        </div>,
+          />) ||
+          null,
+
         (i !== skills.length - 1 && <SkillSpacer key={100 + i} />) || null,
       ])}
     <Section.Footer />
