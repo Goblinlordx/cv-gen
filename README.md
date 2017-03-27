@@ -18,7 +18,7 @@ This was literally thrown together over the course of a day or so.  I actually t
 * Formatted to print properly
 * Data-driven format that adjusts to the data provided
 * Secured using [Firebase][5] and a custom token based [authorization system](#authorize) without requiring logins
-* Data provided can be different based on grouped authentication tokens.
+* Data provided can be different based on grouped authorization tokens.
 * Analytical data collection
 
 
