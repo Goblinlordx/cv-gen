@@ -14,15 +14,15 @@ const SkillPanel = ({data: {name}}) => (
 
 const recordStyle = {
   flex: 1,
+  margin: 0,
   paddingTop: 3,
   paddingRight: 30,
-  paddingLeft: 30,
+  paddingLeft: 58,
 };
 
 const SkillContent = ({data: {description, descriptors = []}}) => (
   <ul style={recordStyle}>
-    {descriptors.map(d => {})}
-    {description}
+    {descriptors.map((d, i) => <li key={i}>{d}</li>)}
   </ul>
 );
 
