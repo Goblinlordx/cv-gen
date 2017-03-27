@@ -1,4 +1,4 @@
-# CV Generator
+# CV Generator [![Build Status](https://travis-ci.org/Goblinlordx/cv-gen.svg?branch=master)](https://travis-ci.org/Goblinlordx/cv-gen)
 
  - [Introduction](#intro)
  - [Architectural Overview](#architecture)
