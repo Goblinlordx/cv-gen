@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ConnectFirebase from 'component/ConnectFirebase';
 import App from 'component/App';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const FirebaseApp = ConnectFirebase(App);
+
+ReactDOM.render(<FirebaseApp />, document.getElementById('root'));
