@@ -59,19 +59,24 @@ const spacerStyle = {
 };
 const CareerSpacer = () => <div style={spacerStyle} />;
 
-const CareerSection = ({data: {career}}) =>
-  career.length > 0 &&
-  <div>
-    <Section content={CareerTitle} />
-    {career &&
-      career.map((d, i) => (
-        <div className="SubSection" key={i}>
-          <Section data={d} panel={CareerPanel} content={RecordHeader} />
-          <Section data={d} content={CareerContent} />
-          {(i !== career.length - 1 && <CareerSpacer />) || null}
-        </div>
-      ))}
-    <Section.Footer />
-  </div>;
+const CareerSection = ({data}) => {
+  if (!data) return null;
+  const {career} = data;
+  if (career.length === 0) return null;
+  return (
+    <div>
+      <Section content={CareerTitle} />
+      {career &&
+        career.map((d, i) => (
+          <div className="SubSection" key={i}>
+            <Section data={d} panel={CareerPanel} content={RecordHeader} />
+            <Section data={d} content={CareerContent} />
+            {(i !== career.length - 1 && <CareerSpacer />) || null}
+          </div>
+        ))}
+      <Section.Footer />
+    </div>
+  );
+};
 
 export default CareerSection;

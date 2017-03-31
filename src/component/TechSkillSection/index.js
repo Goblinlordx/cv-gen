@@ -32,34 +32,39 @@ const spacerStyle = {
 };
 const SkillSpacer = () => <div className="SkillSpacer" style={spacerStyle} />;
 
-const SkillSection = ({data: {skills}}) => (
-  <div>
-    {skills &&
-      skills.map((d, i) => [
-        (!i &&
-          <div className="title" key={i}>
-            <Section content={SkillTitle} />
+const SkillSection = ({data}) => {
+  if (!data) return null;
+  const {skills} = data;
+  if (skills.length === 0) return null;
+  return (
+    <div>
+      {skills &&
+        skills.map((d, i) => [
+          (!i &&
+            <div className="title" key={i}>
+              <Section content={SkillTitle} />
+              <Section
+                sub={true}
+                data={d}
+                panel={SkillPanel}
+                content={SkillContent}
+              />
+            </div>) ||
+            null,
+          (i &&
             <Section
               sub={true}
               data={d}
               panel={SkillPanel}
               content={SkillContent}
-            />
-          </div>) ||
-          null,
-        (i &&
-          <Section
-            sub={true}
-            data={d}
-            panel={SkillPanel}
-            content={SkillContent}
-          />) ||
-          null,
+            />) ||
+            null,
 
-        (i !== skills.length - 1 && <SkillSpacer key={100 + i} />) || null,
-      ])}
-    <Section.Footer />
-  </div>
-);
+          (i !== skills.length - 1 && <SkillSpacer key={100 + i} />) || null,
+        ])}
+      <Section.Footer />
+    </div>
+  );
+};
 
 export default SkillSection;

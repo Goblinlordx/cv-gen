@@ -46,16 +46,21 @@ const spacerStyle = {
 };
 const CertSpacer = () => <div style={spacerStyle} />;
 
-const CertSection = ({data: {training}}) => (
-  <div>
-    <Section content={CertTitle} />
-    {training &&
-      training.map((d, i) => [
-        <Section key={i} data={d} panel={CertPanel} content={CertContent} />,
-        (i !== training.length - 1 && <CertSpacer />) || null,
-      ])}
-    <Section.Footer />
-  </div>
-);
+const CertSection = ({data}) => {
+  if (!data) return null;
+  const {training} = data;
+  if (training.length === 0) return null;
+  return (
+    <div>
+      <Section content={CertTitle} />
+      {training &&
+        training.map((d, i) => [
+          <Section key={i} data={d} panel={CertPanel} content={CertContent} />,
+          (i !== training.length - 1 && <CertSpacer />) || null,
+        ])}
+      <Section.Footer />
+    </div>
+  );
+};
 
 export default CertSection;
